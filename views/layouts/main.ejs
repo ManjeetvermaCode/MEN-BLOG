@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= data.title %></title>
+    <title>Document</title>
     <link rel="stylesheet" href="css/style.css"><%# becouse of express.static(public) middleware we can directly use the stylesheet without going back to its actual location %>
     <script src="js/script.js"></script>
 </head>
 <body>
-   
+   <div class="container">
+    <%- include('../partials/header') %>
     <%- body %><%# when we will render a page for ex- home page, it will be placed in this field %>
+    <%- include('../partials/footer') %>
+   </div>
 </body>
 </html>
