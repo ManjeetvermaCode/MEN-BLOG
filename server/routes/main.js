@@ -9,7 +9,7 @@ router.get('/',(req,res)=>{
         description:'blog website using node,express and mongodb'
     }
 
-    res.render('home',{data})
+    res.render('home',{data}  )
 })
 
 router.get('/about',(req,res)=>{
