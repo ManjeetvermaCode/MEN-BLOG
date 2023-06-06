@@ -10,8 +10,12 @@
 </head>
 <body>
    <div class="container">
+    <%- include('../partials/searchbar') %>
     <%- include('../partials/header') %>
-    <%- body %><%# when we will render a page for ex- home page, it will be placed in this field %>
+    <main class="main">
+        <%- body %><%# when we will render a page for ex- home page, it will be placed in this field %>
+
+    </main>
     <%- include('../partials/footer') %>
    </div>
 </body>

@@ -3,6 +3,8 @@ require('dotenv').config();
 const express=require('express')
 const app=express();
 const expresslayouts=require('express-ejs-layouts')//allow us to use layout template as ejs
+const db=require('./server/configs/db')
+
 
 app.use(express.static('public'))//serving assets
 
@@ -12,6 +14,8 @@ const PORT=5000 || process.env.PORT
 app.use(expresslayouts)//using expresslayouts as a middleware
 app.set('layout','./layouts/main')//setting main.ejs page as only rendering page.
 app.set('view engine','ejs')//setting view engine to ejs
+
+db()
 
 app.use('/',require('./server/routes/main'))
 

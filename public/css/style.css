@@ -248,3 +248,55 @@ img{
     margin:4rem;
     text-align: center;
 }
+
+/*searchbar*/
+.searchbar{
+    
+    visibility: hidden;
+    transform: translateY(-100);
+    
+    background-color: var(--black);
+    padding: 4px 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.searchbar.open{
+    transform: translateY(0);
+    transition: transform 0.1s;
+}
+.searchbar input {
+    margin: 0;
+    padding: 0;
+}
+#searchclose{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--gray-light);
+    padding: 15px;
+}
+
+/*admin dashboard*/
+.admin-posts{
+    padding: 0;
+    margin: 0;
+}
+.admin-post-controls form{
+    display: inline-block;
+}
+.admin-post-controls .btn{
+    display:inline-block;
+    background-color: var(--black);
+    color: var(--gray-light);
+    border: 0;
+    text-decoration: none;
+    font-size: .8rem;
+    padding:4px 8px;
+    line-height: 2;
+}
+.admin-posts li{
+    display: flex;
+    justify-content: space-between;
+    padding:10px 0;
+}
