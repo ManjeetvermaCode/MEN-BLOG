@@ -9,19 +9,16 @@
     <h2 class="article_heading">Latest posts</h2>
 
     <ul class="article-ul">
+       <% data.forEach(post=>{ %>
         <li>
             <a href="#">
-                <span>Post title</span>
-                <span class="article-list_date">Date</span>
+                <span><%= post.title %></span>
+                <span class="article-list_date"><%= post.createdOn.toDateString() %></span><%# toDateString() simplifies the date format %>
             </a>
         </li>
-        <li>
-            <a href="#">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, maxime. Provident ratione at beatae voluptatum excepturi vitae? Tempore sunt minima ipsa sit eaque itaque ducimus quos. Molestias doloribus quidem iusto.
-                Consectetur voluptate mollitia molestias hic, tenetur quas amet ab asperiores ut cumque consequatur magnam excepturi perferendis, maxime maiores porro iste beatae, quod dignissimos nostrum corporis officiis. Itaque ipsam velit dolore.</span>
-                <span class="article-list_date">Date</span>
-            </a>
-        </li>
+      <% }) %>
+        
+        
         
        
 
