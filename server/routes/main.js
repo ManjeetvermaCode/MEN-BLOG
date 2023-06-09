@@ -4,8 +4,11 @@ const post=require('../models/post')
 //routes
 
 router.get('/',async(req,res)=>{
+    const locals={
+        title:'Home Page'
+    }
     try {
-        let perPage=1;
+        let perPage=7;
         let page=req.query.page || 1;
 
         const data=await post.aggregate([{$sort:{createdOn:-1}}])
@@ -17,7 +20,8 @@ router.get('/',async(req,res)=>{
         const nextPage=parseInt(page)+1;
         const hasNextPage=nextPage<=Math.ceil(count/perPage)
         
-        res.render('home',{data,
+        res.render('home',{locals,
+        data,
         current:page,
         nextPage:hasNextPage ? nextPage:null
     })
@@ -40,17 +44,25 @@ router.get('/',async(req,res)=>{
 
 })
 */
-/*
+
 router.get('/post/:id',async(req,res)=>{
-    const {id}=req.params
-    const p=await post.findById(id)
-    res.render('post_page',{p})
+    try {
+       
+        const {id}=req.params
+        const p=await post.findById(id)
+        const locals={
+            title:p.title
+        }
+        res.render('post',{p,locals})
+    } catch (error) {
+        console.log(error)
+    }
 })
-*/
+
 
 
 router.get('/about',(req,res)=>{
-    res.render('about')
+   res.render('about')
 })
 
 
@@ -78,7 +90,7 @@ function testdata(){
         }
     ])
 }
-testdata()
+//testdata()
 
 
 module.exports=router
