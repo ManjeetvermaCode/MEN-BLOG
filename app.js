@@ -27,6 +27,10 @@ app.use(expresslayouts)//using expresslayouts as a middleware
 app.set('layout','./layouts/main')//setting main.ejs page as only rendering page.
 app.set('view engine','ejs')//setting view engine to ejs
 
+//for enabling post method
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+
 app.use('/',require('./server/routes/main'))
 
 
