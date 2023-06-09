@@ -257,8 +257,8 @@ img{
 /*searchbar*/
 .searchbar{
     
-    visibility: hidden;
-    transform: translateY(-100);
+    /* visibility: hidden;
+    transform: translateY(-100); */
     
     background-color: var(--black);
     padding: 4px 0;
@@ -330,4 +330,27 @@ body of post
 .c span{
     display: flex;
     justify-content:flex-end;
+}
+
+/*searched result page */
+.sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.sec-ul li{
+    padding: 1.2rem 3rem;
+    margin: 1.5rem 2rem;
+    border-bottom: 0.2px solid var(--gray);
+    list-style-type: none;
+  
+}
+
+.sec-ul li a{
+    text-decoration: none;
+    font-size: var(--font-size-md);
+    font-weight: lighter;
+}
+.sec-ul li a:hover{
+    font-weight: bold;
 }

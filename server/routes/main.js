@@ -31,19 +31,29 @@ router.get('/',async(req,res)=>{
     }
 
 })
-/*
-router.get('/',async(req,res)=>{
+
+router.post('/search',async(req,res)=>{
     try {
-        const data=await post.find();
-        //console.log(data)
-        res.render('home',{data})
+        const locals={
+            title:'Results'
+        }
+    let {searchterm}=req.body;
+    const SearchnospecialChar=searchterm.replace(/[^a-zA-Z0-9]/g,"")
+    
+    const data=await post.find({
+        $or:[
+            {title:{$regex: new RegExp(SearchnospecialChar,'i')}},
+            {body:{$regex:new RegExp(SearchnospecialChar,'i')}}
+        ]
+    })//search logic in mongodb
+        res.render("search",{data})
     } catch (error) {
         console.log('something went wrong')
-        console.log(error)
+        console.log(error) 
     }
 
 })
-*/
+
 
 router.get('/post/:id',async(req,res)=>{
     try {

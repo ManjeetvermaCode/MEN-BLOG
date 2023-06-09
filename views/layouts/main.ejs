@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="/css/style.css"><%# becouse of express.static(public) middleware we can directly use the stylesheet without going back to its actual location %>
 </head>
 <body>
+    <%- include('../partials/searchform') %>
+
    <div class="container">
-    <%- include('../partials/searchbar') %>
     <%- include('../partials/header') %>
     <main class="main">
         <%- body %><%# when we will render a page for ex- home page, it will be placed in this field %>
