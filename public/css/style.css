@@ -21,7 +21,9 @@ body{
 }
 a{color: var(--black);}
 h1{font-size: var(--font-size-xl);}
-h2{font-size: var(--font-size-lg);}
+h2{
+    font-size: var(--font-size-lg);
+}
 h3{font-size: var(--font-size-md);}
 
 input[type="text"],
@@ -162,7 +164,8 @@ img{
     text-align: center;
 }
 .author_heading{
-    margin-top: 3rem;
+    font-size:larger;
+    margin-top: 10px;
     margin-bottom: 5px;
     padding: 10px 15px;
 }
@@ -175,9 +178,10 @@ img{
 .article_heading{
     margin-top: 12px;
     margin-bottom: 0px;
-    font-weight: 400;
+    font-size:x-large;
+    font-weight: bold;
 }
-.article-ul{
+.article-ul li{
     list-style-type: none;
     padding: 0 20px;
     margin: .2rem 0;
@@ -242,6 +246,7 @@ img{
 
 .article{
     white-space: pre-wrap;
+   
 }
 
 .footer{
@@ -299,4 +304,30 @@ img{
     display: flex;
     justify-content: space-between;
     padding:10px 0;
+}
+
+section .article{
+margin-top: 0;
+}
+
+/*
+body of post
+*/
+.c{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.c h1{
+    font-size: x-large;
+}
+.c p{
+    font-weight:400;
+    font-size: medium;
+    margin: 5px 1rem;
+}
+
+.c span{
+    display: flex;
+    justify-content:flex-end;
 }

@@ -5,6 +5,7 @@ const PORT=5000 || process.env.PORT
 const express=require('express')
 const app=express();
 const expresslayouts=require('express-ejs-layouts')//allow us to use layout template as ejs
+const path=require('path')
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/men-blog', { 
     useNewUrlParser: true,
@@ -19,14 +20,12 @@ mongoose.connect('mongodb://localhost:27017/men-blog', {
 })
 
 
-app.use(express.static('public'))//serving assets
-
+app.use(express.static(path.join(__dirname, "public")));
 
 //templating engine
 app.use(expresslayouts)//using expresslayouts as a middleware
 app.set('layout','./layouts/main')//setting main.ejs page as only rendering page.
 app.set('view engine','ejs')//setting view engine to ejs
-
 
 app.use('/',require('./server/routes/main'))
 
