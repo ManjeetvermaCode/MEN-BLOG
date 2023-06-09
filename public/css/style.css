@@ -204,7 +204,7 @@ img{
     .article-ul li a {
         flex-direction: row;
         align-items: center;
-        padding: 10px 15px;
+        padding:-4rem 15px;
     }
     .article-list_date{
         text-align: right;
