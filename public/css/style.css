@@ -265,19 +265,21 @@ img{
     position: absolute;
     left: 0;
     right: 0;
+    height: 2.3rem;
 }
 .searchbar.open{
     transform: translateY(0);
     transition: transform 0.1s;
 }
 .searchbar input {
-    margin: 0;
+    margin: 0.52rem 0;
     padding: 0;
 }
 #searchclose{
+    font-size: var(--font-size-md);
     position: absolute;
     top: 0;
-    right: 0;
+    right: 3rem;
     color: var(--gray-light);
     padding: 15px;
 }
