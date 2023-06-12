@@ -6,6 +6,8 @@ const express=require('express')
 const app=express();
 const expresslayouts=require('express-ejs-layouts')//allow us to use layout template as ejs
 const path=require('path')
+
+
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/men-blog', { 
     useNewUrlParser: true,
@@ -30,6 +32,13 @@ app.set('view engine','ejs')//setting view engine to ejs
 //for enabling post method
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+
+//session and cookies
+
+
+
+    
+
 
 app.use('/',require('./server/routes/main'))
 app.use('/',require('./server/routes/admin'))
