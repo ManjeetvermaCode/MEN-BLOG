@@ -7,6 +7,8 @@ const app=express();
 const expresslayouts=require('express-ejs-layouts')//allow us to use layout template as ejs
 const path=require('path')
 
+const session=require('express-session')
+
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/men-blog', { 
@@ -34,6 +36,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 //session and cookies
+app.use(session({secret:'probablyagoodpassword'}))
 
 
 
