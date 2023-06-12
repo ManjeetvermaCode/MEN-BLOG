@@ -32,7 +32,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.use('/',require('./server/routes/main'))
-
+app.use('/',require('./server/routes/admin'))
 
 app.listen(PORT,()=>{
     console.log(`The app is hosted on port ${PORT}`)
