@@ -50,8 +50,17 @@ router.post('/login',async(req,res)=>{
 
 //admin->login->dashboard
 
-router.get('/dashboard',isvalid,(req,res)=>{
-    res.render('admin/dashboard')
+router.get('/dashboard',isvalid,async(req,res)=>{
+    try {
+      const locals={
+        title:'Admin DashBoard'
+      }  
+      const data=await post.find({})
+       res.render('admin/dashboard',{locals,data})
+    } catch (error) {
+        res.status(201).json({message:'something wrong'})
+    }
+
 })
 
 
