@@ -56,7 +56,7 @@ router.get('/dashboard',isvalid,async(req,res)=>{
         title:'Admin DashBoard'
       }  
       const data=await post.find({})
-       res.render('admin/dashboard',{locals,data})
+       res.render('admin/dashboard',{locals,data,layout:layout})
     } catch (error) {
         res.status(201).json({message:'something wrong'})
     }
@@ -68,6 +68,78 @@ router.post('/logout',(req,res)=>{
     req.session.user_id=null
     return res.redirect('/')
 })
+
+//get->create-post
+
+router.get('/add-post',isvalid,(req,res)=>{
+    try {
+        const locals={
+            title:'New Post'
+        }
+    res.render('admin/create-post',{locals,layout:layout})
+
+    } catch (error) {
+        res.status(201).json({message:'something wrong'})
+    }
+})
+
+//post->create-post
+
+router.post('/add-post',isvalid,async(req,res)=>{
+    try {
+      const c=new post({
+        title:req.body.title,
+        body:req.body.body
+      })
+      await post.create(c)//creating new blog
+      res.redirect('/dashboard')
+    } catch (error) {
+        res.status(201).json({message:'something wrong'})
+    }
+})
+
+//get-edit post
+router.get('/post/:id/edit-post',isvalid,async(req,res)=>{
+    const {id}=req.params
+    try {
+        const locals={
+            title:'Edit Post Page'
+        }
+    const data=await post.findById(id)
+    res.render('admin/edit-post',{locals,layout:layout,data})
+
+    } catch (error) {
+        res.status(201).json({message:'something wrong'})
+    }
+})
+
+//put-edit post
+router.put('/post/edit-post/:id',isvalid,async(req,res)=>{
+    const {id}=req.params
+    try {
+        await post.findByIdAndUpdate(id,{
+            title:req.body.title,
+            body:req.body.body,
+            Updatedon:Date.now()
+        })
+        res.redirect(`/post/${id}`)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+//delete-delete post
+
+router.delete('/delete-post/:id',async(req,res)=>{
+    const {id}=req.params
+    try {
+        await post.findByIdAndDelete(id)
+        res.redirect('/dashboard')
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 
 // router.post('/admin',async(req,res)=>{
 //     const {username,password}=req.body

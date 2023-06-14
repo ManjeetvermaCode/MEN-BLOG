@@ -7,7 +7,7 @@
         <li>
             <a href="/post/<%= d._id %>"><%= d.title %> &nearr;</a>
             <div class="admin-post-controls">
-                <a href="/edit-post/<%= d._id %>" class="btn" method="post">Edit</a>
+                <a href="/post/<%= d._id %>/edit-post" class="btn" method="post">Edit</a>
                 <form action="/delete-post/<%= d._id %>?_method=DELETE" method="post">
                     <input type="submit" value="delete" class="btn">
                 </form>
