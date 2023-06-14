@@ -5,6 +5,7 @@ const PORT=5000 || process.env.PORT
 const express=require('express')
 const app=express();
 const expresslayouts=require('express-ejs-layouts')//allow us to use layout template as ejs
+const methodoverride=require('method-override')
 const path=require('path')
 
 const session=require('express-session')
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //templating engine
 app.use(expresslayouts)//using expresslayouts as a middleware
+app.use(methodoverride('_method'))
 app.set('layout','./layouts/main')//setting main.ejs page as only rendering page.
 app.set('view engine','ejs')//setting view engine to ejs
 

@@ -285,6 +285,12 @@ img{
 }
 
 /*admin dashboard*/
+.admin-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: var(--font-size-lg);
+}
 .admin-posts{
     padding: 0;
     margin: 0;
