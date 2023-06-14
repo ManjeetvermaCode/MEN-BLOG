@@ -3,9 +3,9 @@
         <a class="logo" href="/">NodeJs</a>
     <div class="nav">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/Contact us">Contact us</a></li>
+            <li><a class="<%= isactive('/',currentroute) %>" href="/">Home</a></li>
+            <li><a class="<%= isactive('/about',currentroute) %>" href="/about">About</a></li>
+            <li><a class="<%= isactive('/isactive',currentroute) %>" href="/Contact us">Contact us</a></li>
 
         </ul>
     </div>

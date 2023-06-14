@@ -10,6 +10,7 @@ const path=require('path')
 
 const session=require('express-session')
 
+const {isactive}=require('./server/helpers/helpers')
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/men-blog', { 
@@ -32,6 +33,8 @@ app.use(expresslayouts)//using expresslayouts as a middleware
 app.use(methodoverride('_method'))
 app.set('layout','./layouts/main')//setting main.ejs page as only rendering page.
 app.set('view engine','ejs')//setting view engine to ejs
+
+app.locals.isactive=isactive
 
 //for enabling post method
 app.use(express.urlencoded({extended:true}))
