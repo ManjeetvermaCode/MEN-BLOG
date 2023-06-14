@@ -6,6 +6,7 @@ const post=require('../models/post')
 router.get('/',async(req,res)=>{
     const locals={
         title:'Home Page'
+        
     }
     try {
         let perPage=7;
@@ -22,6 +23,7 @@ router.get('/',async(req,res)=>{
         
         res.render('home',{locals,
         data,
+        currentroute:'/',
         current:page,
         nextPage:hasNextPage ? nextPage:null
     })
@@ -36,6 +38,7 @@ router.post('/search',async(req,res)=>{
     try {
         const locals={
             title:'Results'
+            
         }
     let {searchterm}=req.body;
     const SearchnospecialChar=searchterm.replace(/[^a-zA-Z0-9]/g,"")
@@ -63,7 +66,7 @@ router.get('/post/:id',async(req,res)=>{
         const locals={
             title:p.title
         }
-        res.render('post',{p,locals})
+        res.render('post',{p,locals,currentroute:'/post/id'})
     } catch (error) {
         console.log(error)
     }
@@ -72,7 +75,7 @@ router.get('/post/:id',async(req,res)=>{
 
 
 router.get('/about',(req,res)=>{
-   res.render('about')
+   res.render('about',{currentroute:'/about'})
 })
 
 
