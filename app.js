@@ -7,8 +7,8 @@ const app=express();
 const expresslayouts=require('express-ejs-layouts')//allow us to use layout template as ejs
 const methodoverride=require('method-override')
 const path=require('path')
-
 const session=require('express-session')
+const flash=require('connect-flash')
 
 const {isactive}=require('./server/helpers/helpers')
 
@@ -41,11 +41,25 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 //session and cookies
-app.use(session({secret:'probablyagoodpassword'}))
+app.use(session({
+    secret:'probablyagoodpassword',
+    resave:false,
+    saveUninitialized:false,
+    cookie:{
+        httpOnly:true,
+        expires:Date.now()*1000*60*60*24*7,
+        maxAge:1000*60*60*24*7
+    }
+
+}))
+app.use(flash())
 
 
-
-    
+app.use((req,res,next)=>{
+    res.locals.success=req.flash('success')
+    res.locals.edit=req.flash('edit')
+    next()
+})   
 
 
 app.use('/',require('./server/routes/main'))
