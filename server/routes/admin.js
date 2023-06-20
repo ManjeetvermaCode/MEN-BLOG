@@ -15,6 +15,8 @@ const isvalid=((req,res,next)=>{
 })
 
 
+
+
 //admin->login page
 router.get('/admin',async(req,res)=>{
     try {
@@ -34,12 +36,13 @@ router.post('/login',async(req,res)=>{
         const user=await newuser.findOne({username})
 
         if(!user){
-            return res.status(401).json({message:'invalid credentials'})
+            return res.status(401).json({messages:'invalid credentials'})
         }
         const ispssvalid=await bcrypt.compare(password,user.password)
         if(ispssvalid){
             req.session.user_id=user._id
-            res.redirect('/dashboard')
+            req.flash('success','WELCOME')
+           return res.redirect('/dashboard')
         }
         else{
             res.status('401').json({message:'invalid credentials'})
@@ -66,7 +69,8 @@ router.get('/dashboard',isvalid,async(req,res)=>{
 
 router.post('/logout',(req,res)=>{
     req.session.user_id=null
-    return res.redirect('/')
+  req.flash('error','Logged out successfuly')
+ res.redirect('/')
 })
 
 //get->create-post
@@ -92,11 +96,29 @@ router.post('/add-post',isvalid,async(req,res)=>{
         body:req.body.body
       })
       await post.create(c)//creating new blog
+      req.flash('success','successfully created the blog')
+
       res.redirect('/dashboard')
     } catch (error) {
         res.status(201).json({message:'something wrong'})
     }
 })
+//put-edit post
+router.put('/post/edit-post/:id',isvalid,async(req,res)=>{
+    const {id}=req.params
+    try {
+        await post.findByIdAndUpdate(id,{
+            title:req.body.title,
+            body:req.body.body,
+            Updatedon:Date.now()
+        })
+        req.flash('success','Successfully edited the blog')
+        res.redirect(`/post/${id}`)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 
 //get-edit post
 router.get('/post/:id/edit-post',isvalid,async(req,res)=>{
@@ -113,20 +135,7 @@ router.get('/post/:id/edit-post',isvalid,async(req,res)=>{
     }
 })
 
-//put-edit post
-router.put('/post/edit-post/:id',isvalid,async(req,res)=>{
-    const {id}=req.params
-    try {
-        await post.findByIdAndUpdate(id,{
-            title:req.body.title,
-            body:req.body.body,
-            Updatedon:Date.now()
-        })
-        res.redirect(`/post/${id}`)
-    } catch (error) {
-        console.log(error)
-    }
-})
+
 
 //delete-delete post
 
@@ -134,6 +143,7 @@ router.delete('/delete-post/:id',async(req,res)=>{
     const {id}=req.params
     try {
         await post.findByIdAndDelete(id)
+        req.flash('success',"SUCCESSFULLY DELETED THE BLOG")
         res.redirect('/dashboard')
     } catch (error) {
         console.log(error)

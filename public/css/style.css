@@ -134,6 +134,7 @@ img{
 
 .header_button button:hover{
     border: 2px solid var(--black);
+   
 }
 
 /*header->nav*/
@@ -282,6 +283,8 @@ img{
     right: 3rem;
     color: var(--gray-light);
     padding: 15px;
+    cursor: pointer;
+
 }
 
 /*admin dashboard*/
