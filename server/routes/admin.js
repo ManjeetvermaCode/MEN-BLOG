@@ -18,7 +18,7 @@ const isvalid=((req,res,next)=>{
 
 
 //admin->login page
-router.get('/admin',async(req,res)=>{
+router.get('/admin',async(req,res,next)=>{
     try {
         const locals={
             title:'Admin Page'
@@ -84,6 +84,7 @@ router.get('/add-post',isvalid,(req,res)=>{
 
     } catch (error) {
         res.status(201).json({message:'something wrong'})
+ 
     }
 })
 
@@ -100,7 +101,7 @@ router.post('/add-post',isvalid,async(req,res)=>{
 
       res.redirect('/dashboard')
     } catch (error) {
-        res.status(201).json({message:'something wrong'})
+        res.status(201).json({message:'Enter valid article.'})
     }
 })
 //put-edit post
@@ -115,7 +116,8 @@ router.put('/post/edit-post/:id',isvalid,async(req,res)=>{
         req.flash('success','Successfully edited the blog')
         res.redirect(`/post/${id}`)
     } catch (error) {
-        console.log(error)
+        res.status(201).json({message:'Do not leave the field empty.'})
+
     }
 })
 
@@ -146,7 +148,8 @@ router.delete('/delete-post/:id',async(req,res)=>{
         req.flash('success',"SUCCESSFULLY DELETED THE BLOG")
         res.redirect('/dashboard')
     } catch (error) {
-        console.log(error)
+        res.status(201).json({message:'failed to delete the blog.'})
+
     }
 })
 
