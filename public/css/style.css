@@ -49,6 +49,7 @@ textarea{
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    font-weight: bold;
 }
 .btn-delete{
     padding: 10px 16px;
@@ -99,6 +100,9 @@ img{
 }
 
 .logo{
+    
+    
+        
     grid-area: logo;
     font-weight: 800;
     font-size: 25px;
@@ -135,6 +139,20 @@ img{
 .header_button button:hover{
     border: 2px solid var(--black);
    
+}
+
+.admin_btn{
+    font-weight: bold;
+    font-size: medium;
+    text-decoration: none;
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 5px; 
+}
+.admin_btn:hover{
+    background-color: var(--black);
+    color: #e4e4e4;
+    border: none;
 }
 
 /*header->nav*/
@@ -251,8 +269,43 @@ img{
 }
 
 .footer{
-    margin:4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    margin:2rem 4rem;
     text-align: center;
+}
+
+.footer a{
+    font-weight: bold;
+    font-size: medium;
+    text-decoration: none;
+    padding: 1px 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.footer a:hover{
+    background-color: var(--black);
+    color: #e4e4e4;
+    border: none;
+}
+/*Social profiles */
+.profiles{
+    background-color: rgba(0, 0, 0, 0.4); /* Adjust the opacity (0.8 in this example) to control transparency */
+    backdrop-filter: blur(15px); /* Adds a blur effect to the background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Adds a subtle shadow effect */
+    height: 45px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+border-radius: 7px ;  
+display: flex;
+flex-direction: row;
+}
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 /*searchbar*/
@@ -325,9 +378,11 @@ margin-top: 0;
 body of post
 */
 .c{
+    max-width: 650px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin: 0 auto;
 }
 .c h1{
     font-size: x-large;
@@ -365,3 +420,10 @@ body of post
 .sec-ul li a:hover{
     font-weight: bold;
 }
+
+.blogbody{
+    white-space: pre-wrap;
+}
+
+
+

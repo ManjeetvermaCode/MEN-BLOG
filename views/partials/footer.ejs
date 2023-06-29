@@ -1,3 +1,15 @@
-<footer class="footer">
-    &copy; <%= new Date().getFullYear() %> By Manjeet Verma
-</footer>
+    <footer class="footer">
+        <div class="profiles">
+           <h1>Follow us on</h1>
+           <div>
+            <p>Pastafarianism_in</p>
+            <img src="" alt="">
+           </div>
+        </div>
+        <div class="footer-content">
+            &copy; <%= new Date().getFullYear() %> By Manjeet Verma
+        <% if(path==='/'){ %>
+            <a href="/admin">Admin Login</a>
+        </div>
+<% } %>
+    </footer>
