@@ -34,7 +34,13 @@ app.use(methodoverride('_method'))
 app.set('layout','./layouts/main')//setting main.ejs page as only rendering page.
 app.set('view engine','ejs')//setting view engine to ejs
 
-app.locals.isactive=isactive
+app.locals.isactive=isactive//setting global variables
+
+app.use((req,res,next)=>{
+    res.locals.path=req.path
+    next()
+})
+
 
 //for enabling post method
 app.use(express.urlencoded({extended:true}))
