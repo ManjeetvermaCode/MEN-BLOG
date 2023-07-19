@@ -93,7 +93,8 @@ router.post('/add-post',isvalid,async(req,res)=>{
     try {
       const c=new post({
         title:req.body.title,
-        body:req.body.body
+        body:req.body.body,
+        imageUrl:req.body.imageUrl
       })
       await post.create(c)//creating new blog
       req.flash('success','successfully created the blog')
@@ -110,6 +111,7 @@ router.put('/post/edit-post/:id',isvalid,async(req,res)=>{
         await post.findByIdAndUpdate(id,{
             title:req.body.title,
             body:req.body.body,
+            imageUrl:req.body.imageUrl,
             Updatedon:Date.now()
         })
         res.redirect(`/post/${id}`)

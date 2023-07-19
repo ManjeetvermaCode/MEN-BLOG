@@ -17,6 +17,9 @@ const postschema=new schema({
     updatedOn:{
         type:Date,
         default:Date.now
+    },
+    imageUrl:{
+        type:String,
     }
 })
 module.exports=mongoose.model('Post',postschema)

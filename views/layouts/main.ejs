@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= locals.title %></title>
-    <link rel="stylesheet" href="/css/style.css"><%# becouse of express.static(public) middleware we can directly use the stylesheet without going back to its actual location %>
+    <!-- <link rel="stylesheet" href="/css/style.css"><%# becouse of express.static(public) middleware we can directly use the stylesheet without going back to its actual location %> -->
+    <link rel="stylesheet" href="/css/style2.css">
     <script src="/js/script.js"></script>
 </head>
 <body>
-    <%- include('../partials/searchform') %>
+    <!-- <%- include('../partials/searchform') %> -->
 
    <div class="container">
     <%- include('../partials/header') %>

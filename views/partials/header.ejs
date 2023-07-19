@@ -1,24 +1,13 @@
-<div class="header">
-   
-    <a class="logo" href="/">Pastafarianism<sup>in</sup></a>
-    <div class="nav">
 
-        <ul>
-            <li><a class="<%= isactive('/',currentroute) %>" href="/">Home</a></li>
-            <li><a class="<%= isactive('/about',currentroute) %>" href="/about">About</a></li>
-            <li><a class="<%= isactive('/isactive',currentroute) %>" href="/Contact us">Contact us</a></li>
 
+        <ul class="nav">
+            
+                <li><a class="logo" href="/">Pastafarianism_in</a></li>
+                <li><a class="<%= isActiveRoute('/',currentroute)  %>"  href="/">Home</a></li>
+                <li><a  class="<%= isActiveRoute('/about',currentroute)  %>" href="/about">About</a></li>
+                <li><a class="<%= isActiveRoute('/contact',currentroute)  %>"  href="/contact us">Contact us</a></li>
+                <li><a class="admin_btn" href="/admin">Admin Login</a></li>
         </ul>
-    </div>
+       
  
-        <!-- <div class="header_button">
-            <button class="searcbtn" aria-expanded="false">
-                search
-                <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="38"><path d="M796-121 533-384q-30 26-69.959 40.5T378-329q-108.162 0-183.081-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.125-57.5T572-585q0-81-56.875-138.5T377-781q-82.083 0-139.542 57.5Q180-666 180-585t57.458 138.5Q294.917-389 377-389Z"/></svg>
-            </button>
-        </div> -->
-        <div class="header_button">
-            <a class="admin_btn" href="/admin">Admin Login</a>
-        </div>
-    
-</div>
+ 

@@ -10,7 +10,7 @@ const path=require('path')
 const session=require('express-session')
 const flash=require('connect-flash')
 
-const {isactive}=require('./server/helpers/helpers')
+const {isActive}=require('./server/helpers/routehelpers')
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/men-blog', { 
@@ -34,10 +34,10 @@ app.use(methodoverride('_method'))
 app.set('layout','./layouts/main')//setting main.ejs page as only rendering page.
 app.set('view engine','ejs')//setting view engine to ejs
 
-app.locals.isactive=isactive//setting global variables
-
 app.use((req,res,next)=>{
     res.locals.path=req.path
+    res.locals.isActiveRoute=isActive
+
     next()
 })
 
