@@ -1,6 +1,6 @@
 <div class="author">
-    <h1 class="author_heading">Hi, I am Manjeet</h1>
-    <p class="author_body">Web Developer</p>
+    <h1 class="author_heading">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h1>
+    <p class="author_body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio debitis cupiditate dolore incidunt vel dicta. Cumque, ducimus! Quas animi ex vitae eos consequatur quam recusandae corrupti itaque, id voluptas. Magni?</p>
 </div>
 
 <img src="https://images.unsplash.com/photo-1685808157817-1611631f8d30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="person looking out through a window" class="hero-image" width="681" height="428">
@@ -11,8 +11,8 @@
        <% data.forEach(post=>{ %>
         <li>
             <a href="/post/<%= post._id %>">
-                <span><%= post.title %></span>
-                <span class="article-list_date"><%= post.createdOn.toDateString() %></span><%# toDateString() simplifies the date format %>
+                <span class="article-list_title"><%= post.title %></span>
+                <span class="article-list_date">-<%= post.createdOn.toDateString() %></span><%# toDateString() simplifies the date format %>
             </a>
         </li>
       <% }) %>
