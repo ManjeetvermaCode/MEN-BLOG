@@ -2,9 +2,9 @@
     <h2>Posts</h2>
     <a href="/add-post" class="button">+ Add New</a>
 </div>
-<ul class="admin-posts">
+<ul style="word-wrap:break-word;" class="admin-posts">
     <% data.forEach((d)=>{ %>
-        <li>
+        <li >
             <a href="/post/<%= d._id %>"><%= d.title %> &nearr;</a>
             <div class="admin-post-controls">
                 <a href="/post/<%= d._id %>/edit-post" class="btn" method="post">Edit</a>
