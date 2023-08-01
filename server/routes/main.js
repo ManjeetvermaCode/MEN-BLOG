@@ -1,6 +1,7 @@
 const express=require('express')
 const router=express.Router();
 const post=require('../models/post')
+const message=require('../models/messages')
 //routes
 
 router.get('/',async(req,res)=>{
@@ -77,8 +78,22 @@ router.get('/about',(req,res)=>{
    res.render('about',{currentroute:'/about'})
 })
 
+router.get('/contact',(req,res)=>{
+    res.render('contact',{currentroute:'/contact'})
+})
 
-
+router.post('/send-msg',async(req,res)=>{
+    try {
+        const {name,email,msg,sub} =req.body;
+    const data=await message.insertMany({name,email,sub,msg})
+    console.log(data,'data saved successfully')
+    req.flash('success','Thanks for your feedback!')
+    res.redirect('/about')
+    } catch (error) {
+        res.status(501).json('something went wrong')
+    }
+    
+})
 
 
 
