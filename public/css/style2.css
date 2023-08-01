@@ -248,18 +248,21 @@ body{
 
 }
 .blogimage{
-    width: 450px;
+    display: flex;
+    align-items: center;
+    width: auto;
     margin: 20px auto;
     padding: 20px auto;
-    height: 300px;
+    height: auto;
 }
 
 @media screen and (max-width:1150px) {
     .blogimage{
-        width: 350px;
-        height: 280px;
-        padding: auto;
-        margin:auto 30px;
+        
+        width: auto;
+        height: auto;
+        margin: 15px auto;
+        padding: 215px auto;
     }
     .blogbody{
         margin: 20px 20px;
@@ -269,10 +272,11 @@ body{
 
 @media screen and (max-width:650px) {
     .blogimage{
-        width: 250px;
-        height: 200px;
-        padding: auto;
-        margin:20px 20px;
+        
+        width:auto;
+        height: auto;
+        margin: 10px auto;
+        padding: 10px auto;
     }
     .blogbody{
         margin: 20px 20px;

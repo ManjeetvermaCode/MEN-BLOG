@@ -172,7 +172,8 @@ router.delete('/delete-post/:id',async(req,res)=>{
 //     res.redirect('/admin')
 // })
 
-//admin-register route
+// admin-register route
+
 // router.post('/register',async(req,res)=>{
 //    try {
 //     const {username,password}=req.body

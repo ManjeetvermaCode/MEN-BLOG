@@ -9,11 +9,14 @@ const methodoverride=require('method-override')
 const path=require('path')
 const session=require('express-session')
 const flash=require('connect-flash')
+const dotenv=require('dotenv')
+
+dotenv.config()
 
 const {isActive}=require('./server/helpers/routehelpers')
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/men-blog', { 
+mongoose.connect((process.env.MONGO_URI), { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
     })
